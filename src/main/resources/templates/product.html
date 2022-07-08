@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <!-- Header -->
+    <div class="header" ng-include="'general/header.html'"></div>
+    
+    <!-- Menu -->
+    <div class="container" ng-include="'general/menu.html'"></div>
+    
+    </div>
+    <div class="container body">
+        <div class="name-product">
+          iPhone 11 I Chính hãng VN/A <span class="badge badge-danger">New</span>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="https://image.cellphones.com.vn/358x/media/catalog/product/i/p/iphone-12_4__1.jpg" alt="">
+                <a href="#"><img class="img-banner" src="https://cdn.cellphones.com.vn/media/wysiwyg/Banner/400-100-product.png" alt="" width="98%"></a>
+            </div>
+            <div class="col-sm-5">
+                <div class="text-danger"><ng-view></ng-view> </div>
+                <div class="row">
+                    <a  href="#!256" class="col-sm-3 btn button-dungluong">
+                      <div>256 GB</div>
+                      <div>19.000.000 ₫</div>
+                    </a>
+                    <a href="#!128" class="col-sm-3 btn button-dungluong">
+                      <div>128 GB</div>
+                      <div>14.350.000 ₫</div>
+                    </a>
+                    <a href="#!64" class="col-sm-3 btn button-dungluong">
+                      <div>64 GB</div>
+                      <div>12.290.000 ₫</div>
+                    </a>
+                </div>
+                <div>Chọn màu để xem giá</div>
+                <div class="row">
+                  <a  href="#!tim" class="col-sm-3 btn button-dungluong">
+                    <div>Tím</div>
+                    <div>12.790.000 ₫</div>
+                  </a>
+                  <a href="#!trang" class="col-sm-3 btn button-dungluong">
+                    <div>Trắng</div>
+                    <div>12.290.000 ₫</div>
+                  </a>
+                  <a href="#!vang" class="col-sm-3 btn button-dungluong">
+                    <div>Vàng</div>
+                    <div>13.090.000 ₫</div>
+                  </a>
+                  <a href="#!den" class="col-sm-3 btn button-dungluong">
+                    <div>Đen</div>
+                    <div>12.290.000 ₫</div>
+                  </a>
+                  <a href="#!do" class="col-sm-3 btn button-dungluong">
+                    <div>Đỏ</div>
+                    <div>15.590.000 ₫</div>
+                  </a>
+              </div>
+              <div >
+                <button class="btn btn-danger btn-block btn-lg">
+                  <div>MUA NGAY</div>
+                  <h6>(Giao tận nơi hoặc lấy từ của hàng)</h6>
+                </button>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button class="btn btn-primary btn-block btn-lg button-pd">
+                    <div>TRẢ GÓP 0%</div>
+                    <h6>(Xét duyệt qua điện thoại)</h6>
+                  </button>
+                </div>
+                <div class="col-sm-6">
+                  <button class="btn btn-primary btn-block btn-lg button-pd">
+                    <div>TRẢ GÓP QUA THẺ</div>
+                    <h6>(Visa, Master Card, JCB)</h6>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="in4">
+                <h4>Thông tin máy</h4>
+                <div><i class="fas fa-mobile-alt"></i> Nguyên Seal,đầy đủ phụ kiện từ nhà sản suất</div>
+                <div><i class="fas fa-shield-alt"></i>Bảo hành chính hãng 12 tháng tại trung tâm bảo hành ủy quyền, 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ NSX.</div>
+              </div>
+            </div>
+        </div> 
+        <div class="row body-bottom">
+          <div class="col-sm-9">
+            <div class="box">
+              <div>
+                <h2 class="text-center text-danger">Đặc điểm nổi bật</h2>
+                <ul>
+                  <li>Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao</li>
+                  <li>Không gian hiển thị sống động - Màn hình 6.1" Super Retina XDR độ sáng cao, sắc nét</li>
+                  <li>Trải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học</li>
+                  <li>Tối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút</li>
+                </ul>
+              </div>
+              <div>
+                <h2>Đánh giá iPhone 13 - Flagship được mong chờ năm 2021</h2>
+                <div>Cuối năm 2020, bộ 4 iPhone 12 đã được ra mắt với nhiều cái tiến. Sau đó, mọi sự quan tâm lại đổ dồn vào sản phẩm tiếp theo – iPhone 13. Vậy iP 13 sẽ có những gì, hãy tìm hiểu ngay sau đây.</div>
+                <h2>Thiết kế với nhiều đột phá</h2>
+                <div>Về kích thước, iPhone 13 sẽ có 4 phiên bản khác nhau và kích thước không đổi so với series iPhone 12 hiện tại. Nếu iPhone 12 có sự thay đổi trong thiết kế từ góc cạnh bo tròn (Thiết kế được duy trì từ thời iPhone 6 đến iPhone 11 Pro Max) sang thiết kế vuông vắn (đã từng có mặt trên iPhone 4 đến iPhone 5S, SE).</div>
+                <div id="see-more" class="collapse">
+                  Thì trên điện thoại iPhone 13 vẫn được duy trì một thiết kế tương tự. Máy vẫn có phiên bản khung viền thép, một số phiên bản khung nhôm cùng mặt lưng kính. Tương tự năm ngoái, Apple cũng sẽ cho ra mắt 4 phiên bản là iPhone 13, 13 mini, 13 Pro và 13 Pro Max. <br>
+                  Phần tai thỏ trên iPhone 13 cũng có thay đổi so với thế hệ trước, cụ thể tai thỏ này được làm nhỏ hơn so với 20%, trong khi đó độ dày của máy vẫn được giữ nguyên. Điểm khác biệt nhất về thiết kế trên thế hệ iPhone 2021 này đó là camera chéo.
+                  <br>
+                  Màu sắc trên mẫu iPhone mới này cũng đa dạng hơn, trong đó nổi bật là iPhone 13 màu hồng. Các màu sắc còn lại đề đã từng được xuất hiện trên các phiên bản trước đó như trắng, đen, đỏ, xanh blue. <br>
+                  <h3>Màn hình màn hình Super Retina XDR độ sáng cao</h3>
+                  Màn hình màn hình Super Retina XDR độ sáng cao
+                  Điện thoại iPhone 13 sẽ được sử dụng tấm nền OLED chất lượng cao và có kích thước 6.1 inch, lớn hơn iPhone 13 mini (5.4 inch). Với tấm nền này với công nghệ ProMotion giúp iPhone 13 tiết kiệm pin đến tối đa khi sử dụng. Người dùng cũng có thể dễ dàng điều chỉnh tốc độ làm tươi tùy theo ý thích.
+                </div>
+                <button type="button" class="btn btn-block" data-toggle="collapse" data-target="#see-more">Xem thêm</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 ">
+            <div class="box">
+              <h3>Thông số kỷ thuật</h3>
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <td>Kích thước màn hình</td>
+                  <td>6.1 inches</td>
+                </tr>
+                <tr>
+                  <td>Công nghệ màn hình</td>
+                  <td>OLED</td>
+                </tr>
+                <tr>
+                  <td>Camera sau</td>
+                  <td>Camera góc rộng: 12MP, f/1.6 Camera góc siêu rộng: 12MP, ƒ/2.4</td>
+                </tr>
+                <tr>
+                  <td>Camera trước</td>
+                  <td>12MP, f/2.2</td>
+                </tr>
+                <tr>
+                  <td>Chipset</td>
+                  <td>Apple A15</td>
+                </tr>
+                <tr>
+                  <td>Dung lượng RAM</td>
+                  <td>4 GB</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+    </div>
+    <hr>
+    
+    <!-- Footer -->
+    <div class="container footer text-center" ng-include="'general/footer.html'"></div>
+    
+   
+    <script src="js/product.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
