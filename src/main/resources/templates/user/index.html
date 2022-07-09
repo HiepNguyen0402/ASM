@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/general/layout::dynamic(~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Banner -->
+<div class="container-fluid row banner " ng-controller="myCtrl">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-6">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+      <div class="carousel-inner img-banner img-banner-boder">
+        <div class="carousel-item active">
+          <img src="https://albumizr.com/ia/732a09f1c0ae78dfae5e2a9bd961c73b.jpg"  width="800" height="300">
+        </div>
+        <div class="carousel-item">
+          <img src="https://albumizr.com/ia/4adab59230ff099d29639f46aabc5301.jpg" width="800" height="300">
+        </div>
+        <div class="carousel-item">
+          <img src="https://albumizr.com/ia/5641a52c0eeee501c084adef8a3a1118.jpg"  width="800" height="300">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-2 img-banner">
+    <img class="p-1 img-banner-boder"  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/640x278---Rightbanner-iPhone12.png" width="380" height="150">
+    <img class="p-1 img-banner-boder"  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/13_series_right_desk.png" width="380" height="150">
+  </div>
+</div>
+
+<!-- Body -->
+<div class="container-fluid body">
+  <div class="row">
+    <!-- Menu body -->
+    <div class="col-sm-2" th:insert="~{/general/body-right.html::menu-right}"></div>
+    <div class="col-sm-9 sale">
+      <div class="text-danger p-4">
+        sale
+      </div>
+      <div class="row">
+        <!-- Products -->
+        <div class="col-sm-3 product" ng-repeat="product in products">
+          <div class="card product1" >
+            <img class="card-img-top" src="{{product.image}}" alt="Card image" style="width:100%">
+            <div class="card-body">
+              <h4 class="card-title">{{product.Name}}</h4>
+              <p class="card-text text-danger">{{product.Price | currency}}</p>
+              <button class="btn btn-primary button-addtocart" ng-click="addItem(product)">Thêm vào giỏ hàng</button>
+              <a href="../product.html" class="btn btn-danger button-buy ">Mua</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

@@ -6,16 +6,16 @@
 <div class="container-fluid" th:fragment="navbar">
   <div class="nav justify-content-center">
     <div class="nav-item">
-      <a href="index.html" class="nav-link text-nav"><img src="image/iPhone_logo.png" width="20px" height="20px" alt=""></a>
+      <a th:href="@{/trangchu}" class="nav-link text-nav"><img src="image/iPhone_logo.png" width="20px" height="20px" alt=""></a>
     </div>
     <div class="nav-item">
-      <a href="iphone.html" class="nav-link text-nav">Iphone</a>
+      <a th:href="@{/iphone}" class="nav-link text-nav">Iphone</a>
     </div>
     <div class="nav-item">
       <a href="mac.html" class="nav-link text-nav">Mac</a>
     </div>
     <div class="nav-item">
-      <a href="ipad.html" class="nav-link text-nav">Ipad</a>
+      <a th:href="@{/ipad}" class="nav-link text-nav">Ipad</a>
     </div>
     <div class="nav-item">
       <a href="watch.html" class="nav-link text-nav">Đồng hồ</a>
@@ -23,7 +23,7 @@
     <div class="nav-item">
       <a href="#" class="nav-link text-nav">Tai nghe</a>
     </div><div class="nav-item">
-    <a href="contact.html" class="nav-link text-nav">Liên hệ</a>
+    <a th:href="@{/contact}" class="nav-link text-nav">Liên hệ</a>
   </div>
   </div>
 </div>
