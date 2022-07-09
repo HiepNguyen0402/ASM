@@ -8,7 +8,7 @@
 <body>
 <!-- Banner -->
 <div class="container-fluid row banner " ng-controller="myCtrl">
-  <div class="col-sm-2"></div>
+  <div class="col-sm-2" th:insert="~{/general/body-right.html::menu-right}"></div>
   <div class="col-sm-6">
     <div id="demo" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
@@ -45,7 +45,7 @@
 <div class="container-fluid body">
   <div class="row">
     <!-- Menu body -->
-    <div class="col-sm-2" th:insert="~{/general/body-right.html::menu-right}"></div>
+    <div class="col-sm-2" ></div>
     <div class="col-sm-9 sale">
       <div class="text-danger p-4">
         sale
