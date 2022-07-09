@@ -1,10 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/general/layout_admin::dynamic(~{::body})}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<!-- header -->
+<main class="m-5" style="min-height: 100vh;" ng-app="myapp">
+    <div class="container w-75" ng-controller="myctl">
+        <ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#edit" type="button" role="tab"
+                        aria-controls="home" aria-selected="true">Edit</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab"
+                        aria-controls="profile" aria-selected="false">List</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!-- edit tab -->
+            <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                <form:form class="needs-validation" novalidate="true" action="" modelAttribute="product" enctype="multipart/form-data"
+                           name="frmValidate">
+                    <div class="form-group mb-3">
+                        <label path="image">Image: </label>
+                        <figure>
+                            <img src="/upload/product/${product.image}" id="imageResult" alt="" class="img-fluid img-thumbnail"
+                                 width="120" height="120">
+                            <img src="/upload/product/error-404.jpg" id="imageResult" alt="" class="img-fluid img-thumbnail"
+                                 width="120" height="120">
+                        </figure>
+                        <input id="upload" path="image" class="form-control" type="file" onchange="readURL(this);"
+                               accept="image/png, image/jpeg" value="${product.image}" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label path="id">Id: </label>
+                        <input path="id" class="form-control" type="text" readonly="true" />
+                    </div>
 
+                    <div class="form-group mb-3">
+                        <label path="name">Name</label>
+                        <input path="name" class="form-control" type="text" required="true" minlength="5" />
+                        <label class="invalid-feedback">Please enter Name and must be greater than 5
+                            characters !!</label>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label path="price">Price: </label>
+                        <input path="price" min="1" ng-model="price" class="form-control" type="number" required="true" />
+                        <label class="invalid-feedback">Please enter price and must not be a negative
+                            number !!</label>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label path="available">Available: </label>
+                        <input type="radio" name="a" id="isAvailable" path="available" value="1" /> True
+                        <input type="radio" name="a" id="isAvailable" path="available" value="0" /> False
+                    </div>
+                    <div class="form-group mb-3">
+                        <label path="createdate">Create date:</label>
+                        <input path="createdate" class="form-control" type="date" readonly="true" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label path="categoryid.id">Category:</label>
+                        <input path="categoryid.id" required="true" class="form-control" type="text" />
+                        <label class="invalid-feedback">Please enter category</label>
+                    </div>
+                    <button class="btn btn-success" formaction="/admin/product/create" formmethod="post"
+                            ng-disabled="frmValidate.$invalid">CREATE</button>
+                    <button class="btn btn-secondary" formaction="/admin/product/update" formmethod="post"
+                            ng-disabled="frmValidate.$invalid">UPDATE</button>
+                    <button class="btn btn-danger" formaction="/admin/product/delete/${product.id}" formmethod="get">DELETE</button>
+                    <button class="btn btn-info" formaction="/admin/product/" formmethod="get">RESET</button>
+                </form:form>
+            </div>
+
+            <!-- list tab -->
+            <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+                <div class="row bg-light p-2">
+                    <div class="text-center">
+                        <h3 class="text-capitalize">SORT PRODUCT BY <span class="fw-bold">a</span></h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="text-end">
+                        <a href="/admin/product/export-excel" class="btn btn-info  text-white fw-bold">Export Excel</a>
+                    </div>
+                </div>
+                <hr>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Available</th>
+                        <th scope="col">Create Date</th>
+                        <th scope="col">Category ID</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>
