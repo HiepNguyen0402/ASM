@@ -52,12 +52,12 @@
       </div>
       <div class="row">
         <!-- Products -->
-        <div class="col-sm-3 product" ng-repeat="product in products">
+        <div class="col-sm-3 product" th:each="p:${items}">
           <div class="card product1" >
             <img class="card-img-top" src="{{product.image}}" alt="Card image" style="width:100%">
             <div class="card-body">
-              <h4 class="card-title">{{product.Name}}</h4>
-              <p class="card-text text-danger">{{product.Price | currency}}</p>
+              <h4 class="card-title" th:text="${p.product_Name}"></h4>
+              <p class="card-text text-danger" th:text="${p.product_Price}"></p>
               <button class="btn btn-primary button-addtocart" ng-click="addItem(product)">Thêm vào giỏ hàng</button>
               <a href="../product.html" class="btn btn-danger button-buy ">Mua</a>
             </div>
