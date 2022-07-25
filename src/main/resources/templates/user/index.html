@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- Banner -->
-<div class="container-fluid row banner " ng-controller="myCtrl">
+<div class="container-fluid row banner " >
   <div class="col-sm-2" th:insert="~{/general/body-right.html::menu-right}"></div>
   <div class="col-sm-6">
     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -54,12 +54,13 @@
         <!-- Products -->
         <div class="col-sm-3 product" th:each="p:${items}">
           <div class="card product1" >
-            <img class="card-img-top" src="{{product.image}}" alt="Card image" style="width:100%">
+            <a th:href="@{|/product/detail/${p.product_ID}|}">
+              <img class="card-img-top" th:src="@{|/assets/images/${p.product_Image}|}" alt="Card image" style="width:100%">
+            </a>
             <div class="card-body">
               <h4 class="card-title" th:text="${p.product_Name}"></h4>
               <p class="card-text text-danger" th:text="${p.product_Price}"></p>
-              <button class="btn btn-primary button-addtocart" ng-click="addItem(product)">Thêm vào giỏ hàng</button>
-              <a href="../product.html" class="btn btn-danger button-buy ">Mua</a>
+              <button class="btn btn-primary button-addtocart" >Thêm vào giỏ hàng</button>
             </div>
           </div>
         </div>

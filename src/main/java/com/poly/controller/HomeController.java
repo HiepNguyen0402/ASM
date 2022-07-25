@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -21,9 +22,11 @@ public class HomeController {
         return "user/index";
     }
 
-    @GetMapping("/iphone")
-    public String iphone(Model model){
-        return "user/iphone";
+    @GetMapping("/product/detail/{id}")
+    public String detail(Model model, @PathVariable("id") Integer id){
+        Product product = productService.findById(id);
+        model.addAttribute("items", product);
+        return "product";
     }
 
     @GetMapping("/contact")
