@@ -22,14 +22,13 @@
     <div class="container" ng-include="'general/menu.html'"></div>
     
     </div>
-    <div class="container body">
-        <div class="name-product">
-          iPhone 11 I Chính hãng VN/A <span class="badge badge-danger">New</span>
+    <div class="container body" th:each="p:${items}">
+        <div class="name-product" th:text="${p.product_Name}">
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-4">
-                <img src="https://image.cellphones.com.vn/358x/media/catalog/product/i/p/iphone-12_4__1.jpg" alt="">
+                <img th:src="@{|/assets/images/${p.product_Image}|}" alt="">
                 <a href="#"><img class="img-banner" src="https://cdn.cellphones.com.vn/media/wysiwyg/Banner/400-100-product.png" alt="" width="98%"></a>
             </div>
             <div class="col-sm-5">
@@ -37,38 +36,38 @@
                 <div class="row">
                     <a  href="#!256" class="col-sm-3 btn button-dungluong">
                       <div>256 GB</div>
-                      <div>19.000.000 ₫</div>
+                      <div th:text="${p.product_Price}"></div>
                     </a>
                     <a href="#!128" class="col-sm-3 btn button-dungluong">
                       <div>128 GB</div>
-                      <div>14.350.000 ₫</div>
+                      <div th:text="${p.product_Price}"></div>
                     </a>
                     <a href="#!64" class="col-sm-3 btn button-dungluong">
                       <div>64 GB</div>
-                      <div>12.290.000 ₫</div>
+                      <div th:text="${p.product_Price}"></div>
                     </a>
                 </div>
                 <div>Chọn màu để xem giá</div>
                 <div class="row">
                   <a  href="#!tim" class="col-sm-3 btn button-dungluong">
                     <div>Tím</div>
-                    <div>12.790.000 ₫</div>
+                    <div th:text="${p.product_Price}"></div>
                   </a>
                   <a href="#!trang" class="col-sm-3 btn button-dungluong">
                     <div>Trắng</div>
-                    <div>12.290.000 ₫</div>
+                    <div th:text="${p.product_Price}"></div>
                   </a>
                   <a href="#!vang" class="col-sm-3 btn button-dungluong">
                     <div>Vàng</div>
-                    <div>13.090.000 ₫</div>
+                    <div th:text="${p.product_Price}"></div>
                   </a>
                   <a href="#!den" class="col-sm-3 btn button-dungluong">
                     <div>Đen</div>
-                    <div>12.290.000 ₫</div>
+                    <div th:text="${p.product_Price}"></div>
                   </a>
                   <a href="#!do" class="col-sm-3 btn button-dungluong">
                     <div>Đỏ</div>
-                    <div>15.590.000 ₫</div>
+                    <div th:text="${p.product_Price}"></div>
                   </a>
               </div>
               <div >
