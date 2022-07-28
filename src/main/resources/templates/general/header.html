@@ -30,7 +30,7 @@
                         <a href="#" class="text-heading" data-toggle="modal" data-target="#myModal"><i class="fas fa-user-circle" ></i>  Đăng nhập</a>
                     </li>
                     <li class="nav-item p-2 ml-4">
-                        <a href="#" class="text-heading" data-toggle="modal" data-target="#myModal1"><i class="fas fa-shopping-cart"></i> Cart</a>
+                        <a href="#" class="text-heading" data-toggle="modal" data-target="#myModal1"><i class="fa badge fa-lg" value={{cart.count}}>&#xf290;</i></a>
                     </li>
                 </ul>
             </nav>
@@ -38,7 +38,7 @@
 
         <!-- The Modal -->
         <div class="modal" id="myModal1">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
@@ -50,20 +50,37 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <div class="row">
-                            <ul>
-                                <li class="animate-repeat" ng-repeat="product in cart | orderBy:'name'">
-                                    <span>{{ product.qty + ' x ' + product.Name + ' = ' + (getCost(product) | currency) }}</span>
-                                    <button class="btn-danger btn-xs" ng-click="removeItem(item);">Remove Item</button>
-                                    </br>
-                                    </br>
-                                </li>
-                            </ul>
+                           <table class="table">
+                               <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th></th>
+                                </tr>
+                               </thead>
+                               <tbody>
+                                <tr ng-repeat="item in cart.items">
+                                    <td>{{item.product_ID}}</td>
+                                    <td>{{item.product_Name}}</td>
+                                    <td>{{item.product_Price}}</td>
+                                    <td><input ng-change="cart.savaToLocalStorage()" ng-model="item.qty" type="number" min="1" ></td>
+                                    <td>{{item.qty*item.product_Price}}</td>
+                                    <td>
+                                        <button ng-click="cart.remove(item.product_ID)" class="btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                               </tbody>
+                           </table>
                         </div>
-                        <button class="btn-danger" ng-click="clearCart();">Clear Cart</button>
+                        <button class="btn-danger" ng-click="cart.clear()">Clear Cart</button>
                     </div>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                        <a th:href="@{/order/checkout}" class="btn btn-primary">Check Out</a>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
