@@ -3,6 +3,7 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
     // Mananer shopping-cart
     $scope.cart = {
         items:[],
+
         //Add item
         add(id){
             var item = this.items.find(item => item.product_ID == id)
