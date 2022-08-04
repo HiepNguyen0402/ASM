@@ -1,9 +1,11 @@
 package com.poly.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -11,7 +13,11 @@ import java.io.Serializable;
 public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer roleID;
+    String roleID;
 
     String fullname;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "role")
+    List<Authorities> authorities;
 }
