@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Optional;
 
 @Data
 @Entity
@@ -13,11 +14,11 @@ public class Authorities implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "roleID")
-    Role role;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "userID")
-    Account account;
+    private Account account;
+
+    @ManyToOne  @JoinColumn(name = "roleID")
+    private Role role;
+
 }

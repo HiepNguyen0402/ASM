@@ -11,17 +11,14 @@ public class AdminController {
     @Autowired
     HttpServletRequest req;
 
-    @PreAuthorize("isAuthenticated")
     @GetMapping("/admin/account")
     public String checkAccoutnLog(){
-        if(!req.isUserInRole("0")){
+        if(!req.isUserInRole("AD")){
             return "redirect:/auth/access/denied";
         }
         return "admin/account";
     }
 
-
-    @PreAuthorize("isAuthenticated")
     @GetMapping("/admin/product")
     public String checkproductLog(){
         return "admin/product";
