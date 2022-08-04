@@ -18,4 +18,6 @@ public class ProductRestController {
     public Product getOne(@PathVariable("id") Integer id){
         return productService.findById(id);
     }
+
+
 }

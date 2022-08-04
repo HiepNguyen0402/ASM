@@ -20,7 +20,7 @@ import lombok.Data;
 public class Category implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer cate_ID;
+    String cate_ID;
     String cate_Name;
     @JsonIgnore
     @OneToMany(mappedBy = "category")
