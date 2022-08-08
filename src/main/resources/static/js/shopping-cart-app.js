@@ -56,4 +56,37 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
     }
 
     $scope.cart.loadFromLocalStorage();
+
+    $scope.show_checkout = false;
+    $scope.show = function (){
+        $scope.show_checkout = true;
+    }
+
+    $scope.order={
+        create_date: new Date(),
+        address:"",
+        account:{userID: $("#username").text()},
+        get orderDetails(){
+            return $scope.cart.items.map(item =>{
+                return{
+                    product:{id:item.id},
+                    price:item.price,
+                    quantity:item.qty
+                }
+            });
+        },
+        purchase(){
+
+            var order = angular.copy(this);
+            $http.post("/rest/orders",order).then(resp =>{
+                alert("ĐặT hàng thành công")
+                $scope.cart.clear();
+                // location.href="/order/detail/"+resp.data.id;
+            }).catch(error =>{
+                alert("Đặt hàng lỗi")
+                console.log(error)
+            })
+            $scope.show_checkout = false;
+        }
+    }
 })
