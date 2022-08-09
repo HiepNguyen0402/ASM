@@ -15,7 +15,7 @@
                         <a href="../user/index.html" class="text-heading">STORE</a>
                     </li>
                     <li class="nav-item ml-4">
-                        <form class="form-inline" action="/action_page.php">
+                        <form class="form-inline" action="/auth/login" method="post">
                             <div class="input-group-btn"></div>
                             <input class="form-control mr-sm-2" type="text" placeholder="Bạn cần tìm gì?">
                         </form>
@@ -27,7 +27,7 @@
                         <a href="#" class="text-heading"><i class="fas fa-map-marker-alt"></i>  Tìm của hàng</a>
                     </li>
                     <li class="nav-item p-2 ml-4">
-                        <a href="#" class="text-heading" data-toggle="modal" data-target="#myModal"><i class="fas fa-user-circle" ></i>  Đăng nhập</a>
+                        <a th:href="@{|/auth/login/form|}" class="text-heading"><i class="fas fa-user-circle" ></i>  Đăng nhập</a>
                     </li>
                     <li class="nav-item p-2 ml-4">
                         <a href="#" class="text-heading" data-toggle="modal" data-target="#myModal1"><i class="fa badge fa-lg" value={{cart.count}}>&#xf290;</i></a>
@@ -110,15 +110,15 @@
                         <div class="tab-content">
                             <div id="home" class="container tab-pane active"><br>
                                 <h3>Đăng nhập</h3>
-                                <form name="formsignin">
+                                <form name="formsignin" action="/auth/login">
                                     <div class="form-group">
-                                        <label for="username">Username:</label>
-                                        <input ng-model="username" type="text" class="form-control"  placeholder="Enter username" name="username" maxlength="30" required>
+                                        <label for="uid1">Username:</label>
+                                        <input type="text" class="form-control" id="uid1"  placeholder="Enter username" name="userID" maxlength="30" required>
                                         <span class="text-danger" ng-show="formsignin.username.$invalid">Vui lòng nhập username</span>
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd">Password:</label>
-                                        <input ng-model="password" type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" minlength="6" maxlength="30" required>
+                                        <input  type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" minlength="6" maxlength="30" required>
                                         <span class="text-danger" ng-show="formsignin.pswd.$invalid">Vui lòng nhập mật khẩu từ 6 - 30 ký tự</span>
                                     </div>
                                     <div class="form-group form-check">
@@ -133,8 +133,8 @@
                                 <h3>Đăng ký</h3>
                                 <form name="formsignup">
                                     <div class="form-group">
-                                        <label for="username">Username:</label>
-                                        <input ng-model="username" type="text" class="form-control"  placeholder="Enter username" name="username" required>
+                                        <label for="uid">Username:</label>
+                                        <input ng-model="username" type="text" class="form-control" id="uid"  placeholder="Enter username" name="username" required>
                                         <span class="text-danger" ng-show="formsignup.username.$invalid">Vui lòng nhập username</span>
                                     </div>
                                     <div class="form-group">

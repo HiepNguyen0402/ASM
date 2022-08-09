@@ -1,5 +1,6 @@
 package com.poly.service;
 
+<<<<<<< HEAD
 
 
 import java.util.List;
@@ -49,4 +50,10 @@ public interface AccountService {
     
 
    
+=======
+import com.poly.entity.Account;
+
+public interface AccountService {
+    Account findById(String userID);
+>>>>>>> master
 }
