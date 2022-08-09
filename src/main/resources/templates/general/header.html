@@ -15,9 +15,9 @@
                         <a href="../user/index.html" class="text-heading">STORE</a>
                     </li>
                     <li class="nav-item ml-4">
-                        <form class="form-inline" action="/auth/login" method="post">
+                        <form class="form-inline" th:action="@{/product/list}">
                             <div class="input-group-btn"></div>
-                            <input class="form-control mr-sm-2" type="text" placeholder="Bạn cần tìm gì?">
+                            <input class="form-control mr-sm-2" type="text" name="keyword" id="keyword" th:value="${keyword}" required placeholder="Bạn cần tìm gì?">
                         </form>
                     </li>
                     <li class="nav-item p-2 ml-4">

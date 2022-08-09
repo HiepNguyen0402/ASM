@@ -3,6 +3,7 @@ package com.poly.controller;
 import com.poly.entity.Product;
 import com.poly.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +24,15 @@ public class HomeController {
     @Autowired
     ProductService productService;
     @RequestMapping("/product/list")
-    public String list(Model model, @RequestParam("cid")Optional<String>cid){
+    public String list(Model model, @RequestParam("cid")Optional<String>cid, @Param("keyword") String keyword){
         if (cid.isPresent()){
             List<Product> list = productService.findByCategoryId(cid.get());
             model.addAttribute("items",list);
-        }else {
+        }else if(keyword != null){
+            List<Product> list = productService.listAll(keyword);
+            model.addAttribute("items", list);
+            model.addAttribute("keyword", keyword);
+        } else {
             List<Product> list = productService.findAll();
             model.addAttribute("items",list);
         }

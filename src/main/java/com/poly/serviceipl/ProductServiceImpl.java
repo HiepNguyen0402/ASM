@@ -21,6 +21,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public List<Product> listAll(String keyword) {
+		if (keyword != null) {
+			return pDao.search(keyword);
+		}
+		return pDao.findAll();
+	}
+
+	@Override
 	public Product findById(Integer id) {
 		// TODO Auto-generated method stub
 		return pDao.findById(id).get();
@@ -40,10 +48,6 @@ public class ProductServiceImpl implements ProductService {
 		return pDao.save(product);
 	}
 
-//	@Override
-//	public void delete(Integer id) {
-//		return pDao.deleteById(id);
-//	}
 
 	@Override
 	public List<Product> findByCategoryId(String cid) {
@@ -51,8 +55,10 @@ public class ProductServiceImpl implements ProductService {
 		return pDao.findByCategoryId(cid);
 	}
 
-	
+	@Override
+	public void delete(Integer id) {
+		pDao.deleteById(id);
+	}
 
-		
 
 }
