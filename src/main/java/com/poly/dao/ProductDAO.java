@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductDAO extends JpaRepository<Product, Integer>{
-	  @Query("SELECT p FROM Product p WHERE p.category.id=?1")
+	  @Query("SELECT p FROM Product p WHERE p.category.cate_ID=?1")
 	    List<Product> findByCategoryId(String cid);
 
 }

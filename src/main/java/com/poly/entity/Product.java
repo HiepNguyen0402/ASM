@@ -26,10 +26,10 @@ import lombok.Data;
 public class Product  implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String name;
-    String image;
-    Double price;
+    Integer product_ID;
+    String product_Name;
+    String product_Image;
+    Double product_Price;
     @Temporal(TemporalType.DATE)
     @Column(name = "create_date")
     Date create_date = new Date();

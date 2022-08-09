@@ -21,7 +21,7 @@ public class ProductRestController {
     @Autowired
     ProductService productService;
     
-    @GetMapping("/rest/products")
+    @GetMapping("/rest/product")
     public List<Product> getAll(){
         return productService.findAll();
     }
@@ -30,17 +30,17 @@ public class ProductRestController {
     public Product getOne(@PathVariable("id") Integer id){
         return productService.findById(id);
     }
-    @PostMapping("/rest/products")
+    @PostMapping("/rest/product")
     public Product create(@RequestBody Product product){
         return productService.create(product);
     }
 
-    @PutMapping("/rest/products/{id}")
+    @PutMapping("/rest/product/{id}")
     public Product update(@PathVariable("id") Integer id,@RequestBody Product product){
         return productService.update(product);
     }
 
-    @DeleteMapping("/rest/products/{id}")
+    @DeleteMapping("/rest/product/{id}")
     public void delete(@PathVariable("id") Integer id){
          productService.delete(id);
     }
