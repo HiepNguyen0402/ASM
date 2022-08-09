@@ -49,15 +49,15 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
         //CSRF , CORS
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/order/**").authenticated()
-                .antMatchers("/admin/**").hasRole("AD")
-                .anyRequest().permitAll();
+                        .antMatchers("/order/**").authenticated()
+                        .antMatchers("/admin/**").hasRole("AD")
+                        .anyRequest().permitAll();
 
         http.formLogin()
-                .loginPage("/security/login/form")
-                .loginProcessingUrl("/security/login")
-                .defaultSuccessUrl("/security/login/success",false)
-                .failureUrl("/security/login/error");
+                        .loginPage("/security/login/form")
+                        .loginProcessingUrl("/security/login")
+                        .defaultSuccessUrl("/security/login/success",false)
+                        .failureUrl("/security/login/error");
 
         http.rememberMe()
                 .tokenValiditySeconds(86400);
