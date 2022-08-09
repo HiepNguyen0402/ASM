@@ -11,22 +11,48 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    ProductDAO pDao;
+	  @Autowired
+	    ProductDAO pDao;
 
-    @Override
-    public List<Product> findAll() {
-        return pDao.findAll();
-    }
+	@Override
+	public List<Product> findAll() {
+		// TODO Auto-generated method stub
+		return pDao.findAll();
+	}
 
-    @Override
-    public Product findById(Integer id) {
-        return pDao.findById(id).get();
-    }
+	@Override
+	public Product findById(Integer id) {
+		// TODO Auto-generated method stub
+		return pDao.findById(id).get();
+	}
 
-    @Override
-    public List<Product> findByCategoryId(Integer cid) {
-        return pDao.findByCategoryId(cid);
-    }
+	
+
+	@Override
+	public Product create(Product product) {
+		// TODO Auto-generated method stub
+		return pDao.save(product);
+	}
+
+	@Override
+	public Product update(Product product) {
+		// TODO Auto-generated method stub
+		return pDao.save(product);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		return pDao.deleteById(id);
+	}
+
+	@Override
+	public List<Product> findByCategoryId(String cid) {
+		// TODO Auto-generated method stub
+		return pDao.findByCategoryId(cid);
+	}
+
+	
+
+		
 
 }
