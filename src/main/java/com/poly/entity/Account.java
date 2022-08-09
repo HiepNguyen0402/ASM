@@ -4,17 +4,8 @@ package com.poly.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-<<<<<<< HEAD
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-=======
 import javax.persistence.*;
->>>>>>> master
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -37,7 +28,6 @@ public class Account implements Serializable {
     
     @Column(name = "phone", nullable = false, length = 50)
     String phone;
-<<<<<<< HEAD
     
     @JsonIgnore
     @OneToMany(mappedBy = "account")
@@ -58,17 +48,10 @@ public class Account implements Serializable {
 		this.orders = orders;
 	}
     
-    
-    
-=======
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "account")
-    List<Order> orders;
 
     @JsonIgnore
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     List<Authorities> authorities;
 
->>>>>>> master
 }
