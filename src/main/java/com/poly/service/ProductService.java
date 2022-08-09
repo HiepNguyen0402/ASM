@@ -13,8 +13,6 @@ public interface ProductService {
 
 
     Product findById(Integer id);
-    
-    List<Product> findByCategoryId(String cid);
 
     Product create(Product product);
 
@@ -22,5 +20,7 @@ public interface ProductService {
 
     void delete(Integer id);
 
-    List<Product> findByCategoryId(Integer cid);
+   
+
+	List<Product> findByCategoryId(String cid);
 }

@@ -17,43 +17,38 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.findAll();
 	}
 
 	@Override
 	public Product findById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.findById(id).get();
 	}
 
-	@Override
-	public List<Product> findByCategoryId(String cid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Product create(Product product) {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.save(product);
 	}
 
 	@Override
 	public Product update(Product product) {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.save(product);
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
+		return pDao.deleteById(id);
 	}
 
 	@Override
-	public List<Product> findByCategoryId(Integer cid) {
+	public List<Product> findByCategoryId(String cid) {
 		// TODO Auto-generated method stub
-		return null;
+		return pDao.findByCategoryId(cid);
 	}
 
 	

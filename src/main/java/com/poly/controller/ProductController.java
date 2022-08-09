@@ -16,7 +16,7 @@ public class ProductController {
 	   @Autowired
 	    ProductService productService;
 
-	    @RequestMapping("/product")
+	    @RequestMapping("/product/list")
 	    public String list(Model model, @RequestParam("cid")Optional<String>cid){
 	        if (cid.isPresent()){
 	            List<Product> list = productService.findByCategoryId(cid.get());
@@ -26,7 +26,7 @@ public class ProductController {
 	            model.addAttribute("items",list);
 	        }
 
-	        return "admin/product";
+	        return "admin/product/index";
 	    }
 
 	    @RequestMapping("/product/detail/{id}")
