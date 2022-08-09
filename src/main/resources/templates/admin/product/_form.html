@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header">PRODUCT EDITION</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="image">
+                <img ng-src="{'/assets/images/'+form.image}" style="max-width: 100%">
+            </label>
+        </div>
+        <div class="form-group">
+            <label >Name:</label>
+            <input ng-model="form.name" type="text" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label >Price:</label>
+            <input ng-model="form.price" type="text" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label >Image:</label>
+            <input type="file" class="form-control" id="image"
+            onchange="angular.element(this).scope().imageChanged(this.files)">
+        </div>
+        <div class="form-group">
+            <label >Category:</label>
+            <select ng-model="form.category.id" class="form-control">
+                <option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label >Create Date:</label>
+            <input ng-model="form.createDate" type="date" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label >Available?</label>
+            <div  class="form-control" >
+                <label class="radio-inline">
+                    <input ng-model="form.available" ng-value="true" name="available" type="radio">Yes
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="form.available" ngvalue="false" name="available" type="radio">No
+                </label>
+            </div>
+        </div>
+        <button ng-click="create()" type="submit" class="btn btn-primary">Create</button>
+        <button ng-click="update()" type="submit" class="btn btn-primary">Update</button>
+        <button ng-click="delete(form)" type="submit" class="btn btn-primary">Delete</button>
+        <button ng-click="reset()" type="submit" class="btn btn-primary">Reset</button>
+    </div>
+</div>

@@ -22,56 +22,58 @@
         <div class="tab-content" id="myTabContent">
             <!-- edit tab -->
             <div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="edit-tab">
-                <form:form class="needs-validation" novalidate="true" action="" modelAttribute="product" enctype="multipart/form-data"
+            
+                <form:form action="/product/index" method="post" modelAttribute="product" 
+                
+                
+                
+                
+                class="needs-validation" novalidate="true" action="" modelAttribute="product" enctype="multipart/form-data"
                            name="frmValidate">
                     <div class="form-group mb-3">
-                        <label path="image">Image: </label>
+                        <label path="product_Image">Image: </label>
                         <figure>
                             <img src="/upload/product/${product.image}" id="imageResult" alt="" class="img-fluid img-thumbnail"
                                  width="120" height="120">
                             <img src="/upload/product/error-404.jpg" id="imageResult" alt="" class="img-fluid img-thumbnail"
                                  width="120" height="120">
                         </figure>
-                        <input id="upload" path="image" class="form-control" type="file" onchange="readURL(this);"
+                        <input id="upload" path="product_Image" class="form-control" type="file" onchange="readURL(this);"
                                accept="image/png, image/jpeg" value="${product.image}" />
                     </div>
                     <div class="form-group mb-3">
-                        <label path="id">Id: </label>
-                        <input path="id" class="form-control" type="text" readonly="true" />
+                        <label path="product_ID">Id: </label>
+                        <input path="product_ID" class="form-control" type="text" readonly="true" />
                     </div>
 
                     <div class="form-group mb-3">
-                        <label path="name">Name</label>
-                        <input path="name" class="form-control" type="text" required="true" minlength="5" />
+                        <label path="product_Name">Name</label>
+                        <input path="product_Name" class="form-control" type="text" required="true" minlength="5" />
                         <label class="invalid-feedback">Please enter Name and must be greater than 5
                             characters !!</label>
                     </div>
                     <div class="form-group mb-3">
-                        <label path="price">Price: </label>
-                        <input path="price" min="1" ng-model="price" class="form-control" type="number" required="true" />
+                        <label path="product_Price">Price: </label>
+                        <input path="product_Price" min="1" ng-model="price" class="form-control" type="number" required="true" />
                         <label class="invalid-feedback">Please enter price and must not be a negative
                             number !!</label>
                     </div>
+                   
                     <div class="form-group mb-3">
-                        <label path="available">Available: </label>
-                        <input type="radio" name="a" id="isAvailable" path="available" value="1" /> True
-                        <input type="radio" name="a" id="isAvailable" path="available" value="0" /> False
+                        <label path="create_date">Create date:</label>
+                        <input path="create_date" class="form-control" type="date" readonly="true" />
                     </div>
                     <div class="form-group mb-3">
-                        <label path="createdate">Create date:</label>
-                        <input path="createdate" class="form-control" type="date" readonly="true" />
-                    </div>
-                    <div class="form-group mb-3">
-                        <label path="categoryid.id">Category:</label>
-                        <input path="categoryid.id" required="true" class="form-control" type="text" />
+                        <label path="cate_ID">Category:</label>
+                        <input path="cate_ID" required="true" class="form-control" type="text" />
                         <label class="invalid-feedback">Please enter category</label>
                     </div>
-                    <button class="btn btn-success" formaction="/admin/product/create" formmethod="post"
+                    <button class="btn btn-success" formaction="/product/create" formmethod="post"
                             ng-disabled="frmValidate.$invalid">CREATE</button>
-                    <button class="btn btn-secondary" formaction="/admin/product/update" formmethod="post"
+                    <button class="btn btn-secondary" formaction="/product/update" formmethod="post"
                             ng-disabled="frmValidate.$invalid">UPDATE</button>
-                    <button class="btn btn-danger" formaction="/admin/product/delete/${product.id}" formmethod="get">DELETE</button>
-                    <button class="btn btn-info" formaction="/admin/product/" formmethod="get">RESET</button>
+                    <button class="btn btn-danger" formaction="/product/delete/${product.product_ID}" formmethod="get">DELETE</button>
+                    <button class="btn btn-info" formaction="/product/" formmethod="get">RESET</button>
                 </form:form>
             </div>
 
@@ -101,9 +103,25 @@
                         <th scope="col">Category ID</th>
                     </tr>
                     </thead>
-                    <tbody>
+                 
+                        <tbody>
+                            <c:forEach var="item" items="${products}" varStatus="loop">
+                                <tr>
+                                    <th scope="row">${item.product_ID}</th>
+                                    <th>${item.product_ID}</th>
+                                   <th>${item.product_Name}</th>
+                                    <th>${item.product_Price}</th>
+                                     <th>${item.product_Image}</th>
+                                       <th>${item.create_date}</th>
+                                       <th>${item.cate_ID}</th>                
+                                    <th class="text-end">
+                                        <a href="/product/edit/${item.product_ID}" class="btn btn-primary" role="button">Edit</a>
+                                        <a href="/product/delete/${item.product_ID}" class="btn btn-danger" role="button">Delete</a>
+                                    </th>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
 
-                    </tbody>
                 </table>
             </div>
         </div>

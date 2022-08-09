@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header">PRODUCT LIST</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Available?</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in items">
+            <th>{{item.id}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.price|number:2}}</th>
+            <th>{{item.createDate|date:'dd-MM-yyyy'}}</th>
+            <th>{{item.image}}</th>
+            <th>{{item.category.name}}</th>
+            <th>{{item.available?'Yes':'No'}}?</th>
+            <th>
+                <div class="btn-group btn-group-xs">
+                    <button ng-click="edit(item)">Edit</button>
+                    <button ng-click="delete(item)">Del</button>
+                </div>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+    <div class="card-footer justify-content-center">
+        <button ng-click="first()"><<</button>
+        <button ng-click="prev()" ><</button>
+        <button  >{{pager.page+1}} of {{pager.count}}</button>
+        <button ng-click="next()">>/button>
+        <button ng-click="last()">>>/button>
+    </div>
+</div>
