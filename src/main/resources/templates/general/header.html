@@ -26,9 +26,16 @@
                     <li class="nav-item p-2 ml-4">
                         <a href="#" class="text-heading"><i class="fas fa-map-marker-alt"></i>  Tìm của hàng</a>
                     </li>
-                    <li class="nav-item p-2 ml-4">
-                        <a th:href="@{|/auth/login/form|}" class="text-heading"><i class="fas fa-user-circle" ></i>  Đăng nhập</a>
-                    </li>
+                    <th:block th:if="${#request.remoteUser}">
+                        <li class="nav-item p-2 ml-4">
+                            <a th:href="@{/security/logoff}" class="text-heading"><i class="fas fa-user-circle" ></i>  Đăng xuất</a>
+                        </li>
+                    </th:block>
+                    <th:block th:unless="${#request.remoteUser}">
+                        <li class="nav-item p-2 ml-4">
+                            <a th:href="@{/security/login/form}" class="text-heading"><i class="fas fa-user-circle" ></i>  Đăng Nhập</a>
+                        </li>
+                    </th:block>
                     <li class="nav-item p-2 ml-4">
                         <a href="#" class="text-heading" data-toggle="modal" data-target="#myModal1"><i class="fa badge fa-lg" value={{cart.count}}>&#xf290;</i></a>
                     </li>

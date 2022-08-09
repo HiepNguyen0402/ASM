@@ -56,8 +56,12 @@ public class UserRestController {
 	}
 	
 	@DeleteMapping("{userID}")
-		public void delete(@PathVariable("userID") String userID) {
+	public void delete(@PathVariable("userID") String userID) {
 			accountService.delete(userID);
 		}
-	
+
+	@GetMapping("{userID}")
+	public Account getRole(@PathVariable("userID")String userID){
+		return accountService.findRole(userID);
+	}
 }
