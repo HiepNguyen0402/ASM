@@ -24,7 +24,7 @@ public class HomeController {
     @Autowired
     ProductService productService;
     @RequestMapping("/product/list")
-    public String list(Model model, @RequestParam("cid")Optional<String>cid, @Param("keyword") String keyword){
+    public String list(Model model, @RequestParam("cid")Optional<Integer>cid, @Param("keyword") String keyword){
         if (cid.isPresent()){
             List<Product> list = productService.findByCategoryId(cid.get());
             model.addAttribute("items",list);
