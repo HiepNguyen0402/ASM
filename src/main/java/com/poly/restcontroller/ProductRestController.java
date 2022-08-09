@@ -39,9 +39,9 @@ public class ProductRestController {
         return productService.update(product);
     }
 
-    @DeleteMapping("/rest/products/{id}")
-    public void delete(@PathVariable("id") Integer id){
-         productService.delete(id);
-    }
+//    @DeleteMapping("/rest/products/{id}")
+//    public void delete(@PathVariable("id") Integer id){
+//         productService.delete(id);
+//    }
 
 }

@@ -53,9 +53,9 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().cors().disable();
 
         //phân quyền sử dụng
-        http.authorizeRequests()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                .anyRequest().permitAll();
+//        http.authorizeRequests()
+//                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+//                .anyRequest().permitAll();
         //Điểu khiển lỗi truy cập kh đúng vai trò
         http.exceptionHandling().accessDeniedPage("/auth/access/denied");
         http.formLogin()

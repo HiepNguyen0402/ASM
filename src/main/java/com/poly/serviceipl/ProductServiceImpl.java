@@ -40,10 +40,10 @@ public class ProductServiceImpl implements ProductService {
 		return pDao.save(product);
 	}
 
-	@Override
-	public void delete(Integer id) {
-		return pDao.deleteById(id);
-	}
+//	@Override
+//	public void delete(Integer id) {
+//		return pDao.deleteById(id);
+//	}
 
 	@Override
 	public List<Product> findByCategoryId(String cid) {
