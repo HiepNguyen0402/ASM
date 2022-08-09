@@ -27,7 +27,7 @@ public class ProductController {
 	            model.addAttribute("items",list);
 	        }
 
-	        return "product/list";
+	        return "admin/product/index";
 	    }
 
 	    @RequestMapping("/product/detail/{id}")
