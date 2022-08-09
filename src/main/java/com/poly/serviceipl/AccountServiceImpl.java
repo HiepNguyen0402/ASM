@@ -45,8 +45,9 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Account findRole(String userID) {
-		return dao.findRole(userID);
+	public List<Account> getAdminisrtators() {
+		return dao.getAdministrators();
 	}
+
 
 }

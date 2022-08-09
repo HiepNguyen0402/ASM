@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class SecurityController {
+
+    @Autowired
+    HttpServletRequest req;
     @Autowired
     AccountService accountService;
 
@@ -20,11 +23,11 @@ public class SecurityController {
     }
 
     @RequestMapping("/security/login/success")
-    public String loginSuccess(Model model, HttpServletRequest request){
-        String username = request.getRemoteUser();
-        String role = String.valueOf((accountService.findRole(username)));
-        model.addAttribute("msg","Đăng nhập thành công"+role);
-        return "security/login";
+    public String loginSuccess(Model model){
+        if(!req.isUserInRole("AD")){
+            return "forward:/product/list";
+        }
+        return "forward:/admin/product";
     }
 
     @RequestMapping("/security/login/error")

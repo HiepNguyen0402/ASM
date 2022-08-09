@@ -20,5 +20,7 @@ public interface AccountService {
     void delete(String userID);
 
 
-    Account findRole(String userID);
+
+    List<Account> getAdminisrtators();
+
 }
