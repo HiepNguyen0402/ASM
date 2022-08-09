@@ -44,4 +44,10 @@ public class AccountServiceImpl implements AccountService {
 
 	}
 
+	@Override
+	public List<Account> getAdminisrtators() {
+		return dao.getAdministrators();
+	}
+
+
 }

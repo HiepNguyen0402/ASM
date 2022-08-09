@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AccountController {
-    @RequestMapping("/auth/login/form")
-    public String form(){
-        return "user/login";
-    }
 
     @RequestMapping("/auth/login/success")
     public String success(Model model){

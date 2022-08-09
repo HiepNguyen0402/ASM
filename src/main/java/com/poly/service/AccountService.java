@@ -20,4 +20,7 @@ public interface AccountService {
     void delete(String userID);
 
 
+
+    List<Account> getAdminisrtators();
+
 }

@@ -6,8 +6,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 
 public interface AccountDAO extends JpaRepository<Account, String>{
-	// Derived Query - for checking if account exist by id
-    public boolean existsAccountByUserID(String userID);
+    @Query("SELECT DISTINCT ar.account FROM Authorities ar WHERE ar.role.roleID IN ('AD')")
+    List<Account> getAdministrators();
 }

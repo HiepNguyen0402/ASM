@@ -8,7 +8,9 @@ import java.util.Optional;
 
 @Data
 @Entity
-@Table(name = "Authorities")
+@Table( name = "Authorities", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"userID", "roleID"})
+})
 public class Authorities implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

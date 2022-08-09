@@ -2,6 +2,7 @@ package com.poly.restcontroller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +57,16 @@ public class UserRestController {
 	}
 	
 	@DeleteMapping("{userID}")
-		public void delete(@PathVariable("userID") String userID) {
+	public void delete(@PathVariable("userID") String userID) {
 			accountService.delete(userID);
 		}
-	
+
+
+	@GetMapping("/rest/accounts")
+	public List<Account> getAccounts(@RequestParam("admin") Optional<Boolean> admin){
+		if (admin.orElse(false)){
+			return accountService.getAdminisrtators();
+		}
+		return accountService.findAll();
+	}
 }
