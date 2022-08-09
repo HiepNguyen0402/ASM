@@ -9,9 +9,7 @@ public interface ProductService {
 
     List<Product> findAll();
 
-//    Product findById(Integer id);
-
-
+    List<Product> listAll(String keyword);
     Product findById(Integer id);
 
     Product create(Product product);
@@ -20,7 +18,11 @@ public interface ProductService {
 
 //    void delete(Integer id);
 
+
+
    
 
 	List<Product> findByCategoryId(String cid);
+
+    void delete(Integer id);
 }

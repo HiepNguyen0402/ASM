@@ -46,8 +46,8 @@ app.controller("product-ctrl",function ($scope,$http) {
     
     $scope.update=function () {
         var item = angular.copy($scope.form)
-        $http.put(`/rest/products/${item.id}`,item).then(resp=>{
-            var index = $scope.items.findIndex(p=> p.id == item.id);
+        $http.put(`/rest/products/${item.product_ID}`,item).then(resp=>{
+            var index = $scope.items.findIndex(p=> p.id == item.product_ID);
             $scope.items[index]=item;
             alert("Cập nhập sản phẩm thành công")
         }).catch(error=>{
@@ -55,10 +55,11 @@ app.controller("product-ctrl",function ($scope,$http) {
             console.log("Error",error);
         })
     }
-    
+
+
     $scope.delete=function (item) {
-        $http.delete(`/rest/products/${item.id}`).then(resp=>{
-            var index = $scope.items.findIndex(p=> p.id == item.id);
+        $http.delete(`/rest/products/${item.product_ID}`).then(resp=>{
+            var index = $scope.items.findIndex(p=> p.id == item.product_ID);
             $scope.items.splice(index,1);
             $scope.reset();
             alert("Xóa sản phẩm thành công")
@@ -67,7 +68,7 @@ app.controller("product-ctrl",function ($scope,$http) {
             console.log("Error",error);
         })
     }
-    
+
     $scope.imageChanged=function (files) {
         var data = new FormData();
         data.append('file',files[0]);
@@ -75,7 +76,7 @@ app.controller("product-ctrl",function ($scope,$http) {
             transformRequest: angular.identity,
             headers:{'Content-Type':undefined}
         }).then(resp=>{
-            $scope.form.image=resp.data.name;
+            $scope.form.product_Image=resp.data.name;
         }).catch(error=>{
             alert("Lối upload hình ảnh");
             console.log("Error",error);
