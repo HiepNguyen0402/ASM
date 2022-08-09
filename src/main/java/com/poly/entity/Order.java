@@ -17,7 +17,6 @@ public class Order  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer order_ID;
     String address;
-    String phone;
     @Temporal(TemporalType.DATE)
     @Column(name = "create_date")
     Date create_date = new Date();
