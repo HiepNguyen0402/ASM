@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
 
 
 	@Override
-	public List<Product> findByCategoryId(String cid) {
+	public List<Product> findByCategoryId(Integer cid) {
 		// TODO Auto-generated method stub
 		return pDao.findByCategoryId(cid);
 	}

@@ -22,7 +22,7 @@ public interface ProductService {
 
    
 
-	List<Product> findByCategoryId(String cid);
+	List<Product> findByCategoryId(Integer cid);
 
     void delete(Integer id);
 }
