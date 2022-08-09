@@ -97,8 +97,7 @@
 				</div>
 				<button ng-click="create()" type="submit" class="btn btn-primary">Create</button>
 				<button ng-click="update()" type="submit" class="btn btn-primary">Update</button>
-				<button ng-click="delete(form)" type="submit"
-					class="btn btn-primary">Delete</button>
+				<button ng-click="delete(form)" type="submit" class="btn btn-primary">Delete</button>
 				<button ng-click="reset()" type="submit" class="btn btn-primary">Reset</button>
 			</div>
 			</form:form>
@@ -136,13 +135,15 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in items">
+					    <th>{{item.product_Image}}</th>
 						<th>{{item.product_Id}}</th>
 						<th>{{item.product_Name}}</th>
 						<th>{{item.product_Price|number:2}}</th>
-						<th>{{item.create_date|date:'dd-MM-yyyy'}}</th>
-						<th>{{item.product_Image}}</th>
-						<th>{{item.category.cate_Name}}</th>
 						<th>{{item.available?'Yes':'No'}}?</th>
+						<th>{{item.create_date|date:'dd-MM-yyyy'}}</th>
+						
+						<th>{{item.category.cate_Name}}</th>
+						
 						<th>
 							<div class="btn-group btn-group-xs">
 								<button ng-click="edit(item)">Edit</button>
