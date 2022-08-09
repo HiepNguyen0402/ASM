@@ -28,22 +28,7 @@ public class AdminController {
         }
         return "admin/account";
     }
-    
-    @Autowired
-    ProductService productService;
 
-    @RequestMapping("/product")
-    public String list(Model model, @RequestParam("cid")Optional<String>cid){
-        if (cid.isPresent()){
-            List<Product> list = productService.findByCategoryId(cid.get());
-            model.addAttribute("items",list);
-        }else {
-            List<Product> list = productService.findAll();
-            model.addAttribute("items",list);
-        }
-
-        return "admin/product";
-    }
 
     @GetMapping("/admin/product")
     public String checkproductLog(){

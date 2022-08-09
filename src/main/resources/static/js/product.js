@@ -1,4 +1,4 @@
-
+const app = angular.module("myapp",[]);
 app.controller("product-ctrl",function ($scope,$http) {
     $scope.items=[];
     $scope.cates=[];
@@ -8,7 +8,7 @@ app.controller("product-ctrl",function ($scope,$http) {
         $http.get("/rest/products").then(resp=>{
             $scope.items=resp.data;
             $scope.items.forEach(item=>{
-                item.createDate = new Date(item.createDate)
+                item.create_date = new Date(item.create_date)
             })
         });
 
