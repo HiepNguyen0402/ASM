@@ -7,7 +7,7 @@
       th:fragment="dynamic(view)">
 <body>
 <div class="d-flex flex-column menu" th:fragment="menu-right">
-    <a th:each="c:${cates}" th:href="@{|/product/list?cid=${c.cate_ID}|}" class="list-group-item" >[[${c.cate_Name}]]<i class="fas fa-chevron-right"></i></a>
+    <a th:each="c:${cates}" th:href="@{|/product/list?cid=${c.cate_ID}|}" class="list-group-item text-menu" >[[${c.cate_Name}]]<i class="fas fa-chevron-right"></i></a>
 </div>
 </body>
 </html>

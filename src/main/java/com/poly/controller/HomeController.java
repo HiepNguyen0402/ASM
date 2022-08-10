@@ -59,7 +59,10 @@ public class HomeController {
         return "product/list";
     }
 
-
+    @RequestMapping("/product/contact")
+    public String contact(){
+        return "user/contact";
+    }
 
 
 }
