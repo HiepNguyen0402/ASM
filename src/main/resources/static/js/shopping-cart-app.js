@@ -81,7 +81,7 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
         purchase(){
             var order = angular.copy(this);
             $http.post("/rest/orders",order).then(resp =>{
-                alert("ĐặT hàng thành công")
+                alert("Đặt hàng thành công")
                 $scope.cart.clear();
                 location.href="/order/detail/"+resp.data.id;
             }).catch(error =>{
