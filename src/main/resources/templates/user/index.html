@@ -58,7 +58,7 @@
               <h4 class="card-title" th:text="${p.product_Name}"></h4>
               <p class="card-text text-danger" th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></p>
               <button class="btn btn-primary button-addtocart" th:attr="ng-click=@{|cart.add(${p.product_ID})|}">Thêm vào giỏ hàng</button>
-              <a href="../product.html" class="btn btn-danger button-buy ">Mua</a>
+              <a th:href="@{|/product/detail/${p.product_ID}|}" class="btn btn-danger button-buy ">Mua</a>
             </div>
           </div>
         </div>
