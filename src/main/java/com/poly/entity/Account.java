@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @SuppressWarnings("serial")
-@Data
+
 @Entity
 @Table(name = "account")
 public class Account implements Serializable {
