@@ -14,6 +14,11 @@
     <div class="nav-item">
       <a th:href="@{|/product/list?cid=2|}" class="nav-link text-nav">Macbook</a>
     </div>
+    <th:block th:if="${#request.remoteUser}">
+      <div class="nav-item">
+        <a th:href="@{/order/list}" class="nav-link text-nav">Your Order</a>
+      </div>
+    </th:block>
     <div class="nav-item">
     <a th:href="@{/product/contact}" class="nav-link text-nav">Liên hệ</a>
     </div>
