@@ -43,7 +43,7 @@ public class HomeController {
 
     @GetMapping("/product/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id){
-        if(!req.isUserInRole("0")){
+        if(req.getRemoteUser()==null){
             return "redirect:/auth/access/denied";
         }
         Product product = productService.findById(id);
