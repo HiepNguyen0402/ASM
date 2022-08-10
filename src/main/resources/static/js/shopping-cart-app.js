@@ -1,4 +1,7 @@
 const app = angular.module("shopping-cart-app",[])
+app.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}]);
 app.controller("shopping-cart-ctrl",function ($scope,$http) {
     // Mananer shopping-cart
     $scope.cart = {
@@ -11,7 +14,7 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
                 item.qty++;
                 this.saveToLocalStorage();
             }else {
-                $http.get(`/rest/product/${id}`).then(resp =>{
+                $http.get(`/rest/products/${id}`).then(resp =>{
                     resp.data.qty = 1;
                     this.items.push(resp.data);
                     this.saveToLocalStorage();
@@ -76,12 +79,11 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
             });
         },
         purchase(){
-
             var order = angular.copy(this);
             $http.post("/rest/orders",order).then(resp =>{
-                alert("ĐặT hàng thành công")
+                alert("Đặt hàng thành công")
                 $scope.cart.clear();
-                // location.href="/order/detail/"+resp.data.id;
+                location.href="/order/detail/"+resp.data.id;
             }).catch(error =>{
                 alert("Đặt hàng lỗi")
                 console.log(error)

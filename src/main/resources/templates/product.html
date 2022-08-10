@@ -32,38 +32,38 @@
                 <div class="row">
                     <a  href="#!256" class="col-sm-3 btn button-dungluong">
                       <div>256 GB</div>
-                      <div th:text="${p.product_Price}"></div>
+                      <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                     </a>
                     <a href="#!128" class="col-sm-3 btn button-dungluong">
                       <div>128 GB</div>
-                      <div th:text="${p.product_Price}"></div>
+                      <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                     </a>
                     <a href="#!64" class="col-sm-3 btn button-dungluong">
                       <div>64 GB</div>
-                      <div th:text="${p.product_Price}"></div>
+                      <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                     </a>
                 </div>
                 <div>Chọn màu để xem giá</div>
                 <div class="row">
                   <a  href="#!tim" class="col-sm-3 btn button-dungluong">
                     <div>Tím</div>
-                    <div th:text="${p.product_Price}"></div>
+                    <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                   </a>
                   <a href="#!trang" class="col-sm-3 btn button-dungluong">
                     <div>Trắng</div>
-                    <div th:text="${p.product_Price}"></div>
+                    <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                   </a>
                   <a href="#!vang" class="col-sm-3 btn button-dungluong">
                     <div>Vàng</div>
-                    <div th:text="${p.product_Price}"></div>
+                    <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                   </a>
                   <a href="#!den" class="col-sm-3 btn button-dungluong">
                     <div>Đen</div>
-                    <div th:text="${p.product_Price}"></div>
+                    <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                   </a>
                   <a href="#!do" class="col-sm-3 btn button-dungluong">
                     <div>Đỏ</div>
-                    <div th:text="${p.product_Price}"></div>
+                    <div th:text="${#numbers.formatDecimal(p.product_Price,0,'COMMA',0,'POINT')}"></div>
                   </a>
               </div>
               <div >
