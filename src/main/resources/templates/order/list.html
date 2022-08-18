@@ -15,13 +15,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="order,state:${order}">
+            <tr th:each="orders,state:${orders}">
                 <td>[[${state.index}]]</td>
-                <td>[[${order.id}]]</td>
-                <td>[[${order.createDate}]]</td>
-                <td>[[${order.address}]]</td>
+                <td>[[${orders.order_ID}]]</td>
+                <td>[[${orders.create_date}]]</td>
+                <td>[[${orders.address}]]</td>
                 <td>
-                    <a th:href="@{|/order/detail/${order.id}|}" class="btn btn-default"></a>
+                    <a th:href="@{|/order/detail/${orders.order_ID}|}" class="btn btn-default"></a>
                 </td>
             </tr>
             </tbody>
