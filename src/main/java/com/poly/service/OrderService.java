@@ -10,5 +10,5 @@ public interface OrderService {
 
     Order findById(Integer id);
 
-    List<Order> findByuserID(String userID);
+    List<Order> findByUserID(String userID);
 }
