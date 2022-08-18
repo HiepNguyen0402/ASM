@@ -23,8 +23,8 @@ public class OrderController {
     }
 
     @RequestMapping("/order/detail/{id}")
-    public String detail(@PathVariable("id") Integer id, Model model){
-        model.addAttribute("order", orderService.findById(id));
+    public String detail(@PathVariable("id") Integer order_ID, Model model){
+        model.addAttribute("order", orderService.findById(order_ID));
         return "order/detail";
     }
 

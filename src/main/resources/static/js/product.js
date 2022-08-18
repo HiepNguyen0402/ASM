@@ -21,7 +21,6 @@ app.controller("product-ctrl",function ($scope,$http) {
     $scope.reset=function () {
         $scope.form={
             createDate: new Date(),
-            image:'cloud-upload.jpg',
             available:true,
         }
     }
@@ -76,7 +75,7 @@ app.controller("product-ctrl",function ($scope,$http) {
             transformRequest: angular.identity,
             headers:{'Content-Type':undefined}
         }).then(resp=>{
-            $scope.form.product_Image=resp.data.name;
+            $scope.form.product_Image = resp.data.name;
         }).catch(error=>{
             alert("Lối upload hình ảnh");
             console.log("Error",error);
