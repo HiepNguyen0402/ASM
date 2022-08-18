@@ -72,23 +72,23 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
         get orderDetails(){
             return $scope.cart.items.map(item =>{
                 return{
-                    product:{id:item.id},
-                    price:item.price,
-                    quantity:item.qty
+                    product:{product_ID: item.product_ID},
+                    price: item.price,
+                    quantity: item.qty,
                 }
-            });
+            },
+            );
         },
         purchase(){
             var order = angular.copy(this);
             $http.post("/rest/orders",order).then(resp =>{
                 alert("Đặt hàng thành công")
                 $scope.cart.clear();
-                location.href="/order/detail/"+resp.data.order_ID;
+                location.href="/order/detail/" +resp.data.order_ID;
             }).catch(error =>{
                 alert("Đặt hàng lỗi")
                 console.log(error)
             })
-            $scope.show_checkout = false;
         }
     }
 })

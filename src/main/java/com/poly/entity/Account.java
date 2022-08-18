@@ -33,20 +33,20 @@ public class Account implements Serializable {
     @OneToMany(mappedBy = "account")
     List<Order> orders;
     
-    public Account() {
-    	
-    }
-
-	public Account(String userID, String password, String fullname, String email, String phone,
-			List<Order> orders) {
-		super();
-		this.userID = userID;
-		this.password = password;
-		this.fullname = fullname;
-		this.email = email;
-		this.phone = phone;
-		this.orders = orders;
-	}
+//    public Account() {
+//
+//    }
+//
+//	public Account(String userID, String password, String fullname, String email, String phone,
+//			List<Order> orders) {
+//		super();
+//		this.userID = userID;
+//		this.password = password;
+//		this.fullname = fullname;
+//		this.email = email;
+//		this.phone = phone;
+//		this.orders = orders;
+//	}
     
 
 

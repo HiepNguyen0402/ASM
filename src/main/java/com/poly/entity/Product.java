@@ -28,10 +28,9 @@ public class Product  implements Serializable{
     Category category;
 
     @ManyToOne
-    @JoinColumn(name = "userID")
+    @JoinColumn(name="userID")
     Account account;
-
     @JsonIgnore
-    @OneToMany(mappedBy = "product",   cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product")
     List<OrderDetail> orderDetails;
 }

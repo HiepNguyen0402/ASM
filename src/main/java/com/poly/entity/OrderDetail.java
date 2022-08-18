@@ -16,7 +16,7 @@ public class OrderDetail  implements Serializable{
     Integer id;
     Double price;
     Integer quantity;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "product_ID")
     Product product;
     @ManyToOne
