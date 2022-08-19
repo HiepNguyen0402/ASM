@@ -21,7 +21,6 @@ app.controller("product-ctrl",function ($scope,$http) {
     $scope.reset=function () {
         $scope.form={
             createDate: new Date(),
-            image:'cloud-upload.jpg',
             available:true,
         }
     }
@@ -70,46 +69,16 @@ app.controller("product-ctrl",function ($scope,$http) {
     }
 
     $scope.imageChanged=function (files) {
-        var data = new FormData();
+        const data = new FormData();
         data.append('file',files[0]);
         $http.post('/rest/upload/images',data,{
             transformRequest: angular.identity,
             headers:{'Content-Type':undefined}
         }).then(resp=>{
-            $scope.form.product_Image=resp.data.name;
+            $scope.form.product_Image = resp.data.name;
         }).catch(error=>{
             alert("Lối upload hình ảnh");
             console.log("Error",error);
         })
-    }
-
-    $scope.pager={
-        page:0,
-        size:10,
-        get items(){
-            var start = this.page*this.size;
-            return $scope.items.splice(start,start+this.size);
-        },
-        get count(){
-            return Math.ceil(1.0*$scope.items.length/this.size)
-        },
-        first(){
-            this.page=0;
-        },
-        prev(){
-            this.page--;
-            if (this.page<0){
-                this.last();
-            }
-        },
-        next(){
-            this.page++;
-            if (this.page>=this.count){
-                this.first();
-            }
-        },
-        last(){
-            this.page=this.count-1;
-        }
     }
 })

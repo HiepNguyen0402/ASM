@@ -20,8 +20,8 @@ app.controller("ctrl",function($scope,$http){
   }
   $scope.edit = function (item) {
 	
-    $scope.form = angular.copy(item); 
-	$(".nav-tabs a:eq(0)").tab('show');
+    $scope.form = angular.copy(item);
+    $(".nav-tabs a:eq(0)").tab('show')
   }
   $scope.create = function () {
     var item = angular.copy($scope.form);

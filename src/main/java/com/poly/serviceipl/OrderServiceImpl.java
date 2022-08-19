@@ -45,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findByuserID(String userID) {
-        return oDao.findByuserID(userID);
+    public List<Order> findByUserID(String userID) {
+        return oDao.findByUserID(userID);
     }
 }
